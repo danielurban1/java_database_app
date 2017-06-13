@@ -11,7 +11,7 @@
       <TableView fx:id="table1" layoutX="24.0" layoutY="67.0" prefHeight="465.0" prefWidth="752.0">
         <columns>
           <TableColumn fx:id="name" prefWidth="75.0" text="name" />
-          <TableColumn prefWidth="75.0" text="last name" />
+          <TableColumn fx:id="lastName" prefWidth="75.0" text="last name" />
             <TableColumn fx:id="login" prefWidth="75.0" text="login" />
             <TableColumn fx:id="password" prefWidth="75.0" text="password" />
             <TableColumn fx:id="task1" prefWidth="75.0" text="task1" />
@@ -27,5 +27,6 @@
       <Button fx:id="remove" layoutX="623.0" layoutY="551.0" mnemonicParsing="false" text="Remove" />
       <Label fx:id="l1" layoutX="341.0" layoutY="29.0" prefHeight="17.0" prefWidth="162.0" text="Labeal" />
       <Button fx:id="logOut" layoutX="716.0" layoutY="17.0" mnemonicParsing="false" onAction="#log" text="Log out" />
+      <Button fx:id="connect" layoutX="638.0" layoutY="17.0" mnemonicParsing="false" onAction="#connectDB" text="Connect" />
    </children>
 </Pane>

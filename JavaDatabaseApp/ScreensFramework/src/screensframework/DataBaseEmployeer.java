@@ -7,91 +7,94 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.ObservableList;
+
 public class DataBaseEmployeer {
-	private String login;
-	private String password;
-	private String name;
-	private String last_name;
-	private int task1;
-	private int task2;
-	private int task3;
-	private int task4;
-	private int task5;
-	private int task6;
+	private SimpleStringProperty login;
+	private SimpleStringProperty password;
+	private SimpleStringProperty name;
+	private SimpleStringProperty last_name;
+	private SimpleStringProperty task1;
+	private SimpleStringProperty task2;
+	private SimpleStringProperty task3;
+	private SimpleStringProperty task4;
+	private SimpleStringProperty task5;
+	private SimpleStringProperty task6;
 	
-	DataBaseEmployeer(String login, String password, String name, String last_name, int task1, int task2, int task3, int task4, int task5, int task6){
-		setLogin(login);
-		setPassword(password);
-		setName(name);
-		setLast_name(last_name);
-		setTask1(task1);
-		setTask2(task2);
-		setTask3(task3);
-		setTask4(task4);
-		setTask5(task5);
-		setTask6(task6);
+	DataBaseEmployeer(String login, String password, String name, String last_name, String task1, String task2, String task3, String task4, String task5, String task6){
+		setLogin(new SimpleStringProperty(login));
+		setPassword(new SimpleStringProperty(password));
+		setName(new SimpleStringProperty(name));
+		setLast_name(new SimpleStringProperty(last_name));
+		setTask1(new SimpleStringProperty(task1));
+		setTask2( new SimpleStringProperty(task2));
+		setTask3(new SimpleStringProperty(task3));
+		setTask4(new SimpleStringProperty(task4));
+		setTask5(new SimpleStringProperty(task5));
+		setTask6(new SimpleStringProperty(task6));
 	}
 	
 
 	public String getLogin() {
-		return login;
+		return login.get();
 	}
-	public void setLogin(String login) {
+	public void setLogin(SimpleStringProperty login) {
 		this.login = login;
 	}
 	public String getPassword() {
-		return password;
+		return password.get();
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPassword(SimpleStringProperty simpleStringProperty) {
+		this.password = simpleStringProperty;
 	}
 	public String getName() {
-		return name;
+		return name.get();
 	}
-	public void setName(String name) {
+	public void setName(SimpleStringProperty name) {
 		this.name = name;
 	}
 	public String getLast_name() {
-		return last_name;
+		return last_name.get();
 	}
-	public void setLast_name(String last_name) {
+	public void setLast_name(SimpleStringProperty last_name) {
 		this.last_name = last_name;
 	}
-	public int getTask1() {
-		return task1;
+	public String getTask1() {
+		return task1.get();
 	}
-	public void setTask1(int task1) {
+	public void setTask1(SimpleStringProperty task1) {
 		this.task1 = task1;
 	}
-	public int getTask2() {
-		return task2;
+	public String getTask2() {
+		return task2.get();
 	}
-	public void setTask2(int task2) {
+	public void setTask2(SimpleStringProperty task2) {
 		this.task2 = task2;
 	}
-	public int getTask3() {
-		return task3;
+	public String getTask3() {
+		return task3.get();
 	}
-	public void setTask3(int task3) {
-		this.task3 = task3;
+	public void setTask3(SimpleStringProperty simpleStringProperty) {
+		this.task3 = simpleStringProperty;
 	}
-	public int getTask4() {
-		return task4;
+	public String getTask4() {
+		return task4.get();
 	}
-	public void setTask4(int task4) {
-		this.task4 = task4;
+	public void setTask4(SimpleStringProperty simpleStringProperty) {
+		this.task4 = simpleStringProperty;
 	}
-	public int getTask5() {
-		return task5;
+	public String getTask5() {
+		return task5.get();
 	}
-	public void setTask5(int task5) {
-		this.task5 = task5;
+	public void setTask5(SimpleStringProperty simpleStringProperty) {
+		this.task5 = simpleStringProperty;
 	}
-	public int getTask6() {
-		return task6;
+	public String getTask6() {
+		return task6.get();
 	}
-	public void setTask6(int task6) {
-		this.task6 = task6;
+	public void setTask6(SimpleStringProperty simpleStringProperty) {
+		this.task6 = simpleStringProperty;
 	}
 	
 	public static Connection connect() throws SQLException, ClassNotFoundException{
@@ -117,7 +120,7 @@ public class DataBaseEmployeer {
 			Connection con = connect();
 			Statement stmt = con.createStatement();
 			stmt.executeUpdate("SET FOREIGN_KEY_CHECKS=0");
-			stmt.executeUpdate("delete from employee_table where login = '" + login + "');");
+			stmt.executeUpdate("delete from employee_table where login = '" + login + "';");
 			con.close();
 			} 
 		catch(Exception e){
@@ -130,7 +133,7 @@ public class DataBaseEmployeer {
 			Connection con = connect();
 			Statement stmt = con.createStatement();
 			stmt.executeUpdate("SET FOREIGN_KEY_CHECKS=0");
-			stmt.executeUpdate("delete from employee_table where login = '" + login + "');");
+			stmt.executeUpdate("delete from employee_table where login = '" + login + "';");
 			con.close();
 			} 
 		catch(Exception e){
